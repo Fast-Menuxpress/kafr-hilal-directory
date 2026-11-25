@@ -7,29 +7,38 @@
 <meta name="description" content="محلات وخدمات كفر هلال في مكان واحد. دوّر بالاسم أو بالتصنيف واتصل مباشرة.">
 
 <style>
-:root{--blue:#425dae;--orange:#e78e1a;--teal:#105979;--ink:#1f2937;--mute:#5b6472;--line:#e3e6ee;--bg:#fafbfd}
+:root{--blue:#425dae;--blue2:#2f4590;--orange:#e78e1a;--teal:#105979;--ink:#1f2937;--mute:#5b6472;--line:#e3e6ee;--bg:#f3f5fb}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.6}
-main{max-width:960px;margin:0 auto;padding:24px 16px 48px}
-header{text-align:center;border-bottom:3px solid var(--orange);padding-bottom:16px;margin-bottom:16px}
-header img{width:112px;height:112px;border-radius:50%}
-h1{margin:8px 0 4px;color:var(--blue);font-size:30px}
-header p{margin:0;color:var(--mute)}
-.note{background:#fff7ea;border:1px solid #f3d6a6;border-radius:12px;padding:12px 14px;margin:16px 0;font-size:15px}
-.search{width:100%;padding:12px 14px;font:inherit;border:1px solid var(--line);border-radius:10px;background:#fff}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-.chip{font:inherit;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--mute);min-height:40px;cursor:pointer}
-.chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
-.count{color:var(--mute);margin:4px 0 12px}
-.list{display:grid;gap:12px;grid-template-columns:1fr}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.65}
+main{max-width:980px;margin:0 auto;padding:0 14px 48px}
+header{text-align:center;background:linear-gradient(160deg,#425dae 0%,#2f4590 70%,#233676 100%);color:#fff;margin:0 -14px 18px;padding:28px 16px 30px;border-radius:0 0 28px 28px;box-shadow:0 8px 24px rgba(47,69,144,.25);position:relative}
+header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--orange);border-radius:0 0 28px 28px}
+header img{width:104px;height:104px;border-radius:50%;border:4px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,.25);background:#fff}
+h1{margin:10px 0 6px;color:#fff;font-size:32px;letter-spacing:.2px}
+header p{margin:2px 0;color:#e6ebfa}
+#total{display:inline-block;background:var(--orange);color:#fff;font-weight:700;border-radius:999px;padding:2px 16px;margin:4px 0 8px}
+.note{background:#fff8ec;border:1px solid #f3d6a6;border-right:5px solid var(--orange);border-radius:12px;padding:12px 14px;margin:16px 0;font-size:15px}
+.tools{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 4px}
+.search{width:100%;padding:14px 16px;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 2px 8px rgba(31,41,55,.06);outline:none}
+.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(66,93,174,.18)}
+.chips{display:flex;gap:8px;margin:10px 0 4px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.chip{flex:0 0 auto;font:inherit;font-size:14.5px;padding:8px 15px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--mute);min-height:40px;cursor:pointer;transition:.15s}
+.chip:hover{border-color:var(--blue);color:var(--blue)}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 3px 10px rgba(66,93,174,.35)}
+.count{color:var(--mute);margin:8px 2px 12px;font-size:14px}
+.list{display:grid;gap:14px;grid-template-columns:1fr}
 @media(min-width:760px){.list{grid-template-columns:1fr 1fr}}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.badge{display:inline-block;font-size:13px;color:#fff;background:var(--orange);border-radius:999px;padding:1px 10px}
-.name{margin:8px 0 4px;color:var(--teal);font-size:19px}
-.d{margin:2px 0;color:var(--mute);font-size:15px}
-.phones{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.call{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:10px;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;direction:ltr}
-footer{margin-top:28px;color:var(--mute);font-size:14px;text-align:center}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 2px 10px rgba(31,41,55,.05);border-right:5px solid var(--orange);display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(31,41,55,.10)}
+.badge{align-self:flex-start;font-size:12.5px;color:#9a5b00;background:#fdecd0;border-radius:999px;padding:2px 12px;font-weight:600}
+.name{margin:8px 0 4px;color:var(--teal);font-size:19px;line-height:1.4}
+.d{margin:3px 0;color:var(--mute);font-size:15px}
+.phones{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:12px}
+.call{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:12px;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;direction:ltr;box-shadow:0 3px 8px rgba(66,93,174,.3)}
+.call::before{content:"\260E";font-size:16px}
+.call:active{background:var(--blue2)}
+footer{margin-top:30px;color:var(--mute);font-size:14px;text-align:center}
 </style>
 </head>
 <body>
@@ -41,8 +50,8 @@ footer{margin-top:28px;color:var(--mute);font-size:14px;text-align:center}
 <p>محلات وخدمات البلد في مكان واحد. دوّر بالاسم أو بالتصنيف واتصل مباشرة.</p>
 </header>
 <div class="note"><strong>قائمة جزئية.</strong> الأنشطة دي من جزء من تعليقات المنشور بس، والقائمة لسه بتتزود. لو نشاطك مش موجود أو فيه بيان غلط، كلم صفحة كفر هلال.</div>
-<input id="q" type="search" class="search" placeholder="ابحث باسم المحل أو الخدمة" aria-label="بحث">
-<div id="chips" class="chips"></div>
+<div class="tools"><input id="q" type="search" class="search" placeholder="ابحث باسم المحل أو الخدمة" aria-label="بحث">
+<div id="chips" class="chips"></div></div>
 <p id="count" class="count"></p>
 <div id="list" class="list"></div>
 <footer>الأرقام والتفاصيل زي ما اتكتبت في تعليقات المنشور، ولسه ماتراجعتش مع أصحابها.</footer>
@@ -97,6 +106,14 @@ const businesses = [
     { id: 44, name: 'هيثم حجازي', category: 'مطابخ وأثاث وديكور', detail: 'دهانات الأثاث وديكورات النقاشة', phones: ['01270110822', '01004233687'] },
     { id: 45, name: 'تأسيس سباكة (ندى علي)', category: 'خدمات ومهن', detail: 'تأسيس سباكة' },
     { id: 46, name: 'لبس البيتي والمحجبات (شيماء كامل)', category: 'نظارات وملابس وإكسسوارات', detail: 'كل ما يخص لبس البيتي والمحجبات' },
+    { id: 47, name: 'الأستاذ صابر محمد غنيم (رياضيات)', category: 'مكتبات وتعليم', detail: 'معلم رياضيات وإحصاء بمدارس الإيمان الخاصة، من الصف الرابع الابتدائي حتى الثانوي العام (علمي). الحجز والاستفسار بالتليفون أو واتساب', phones: ['01099856636'] },
+    { id: 48, name: 'ثقة للخدمات الكهربائية', category: 'خدمات ومهن', detail: 'خدمات كهربائية حديثة للمنازل: تأسيس وتشطيب (كفر هلال، قويسنا، بركة السبع). فريق: أحمد القاضي، عاطف شكر، محمد نوفل', phones: ['01289842824','01285227856'] },
+    { id: 49, name: 'محل الموازين (محمد الزتحري)', category: 'خدمات ومهن', detail: 'محل موازين', phones: ['01206423802'] },
+    { id: 50, name: 'فني ثلاجات وغسالات (صبري النادي)', category: 'خدمات ومهن', detail: 'صيانة ثلاجات وغسالات، متواجد حاليًا في القاهرة' },
+    { id: 51, name: 'صاحب الصنعة (آسر - حور - آدم)', category: 'خدمات ومهن', detail: 'نشاط حِرفي، نوع الخدمة غير مذكور في التعليق (شعار فقط)' },
+    { id: 52, name: 'صيدلية نور الإيمان', category: 'صحة', detail: 'صيدلية', phones: ['0482971999'] },
+    { id: 53, name: 'ستائر وتنجيد (أ. مصطفى مجاهد)', category: 'مطابخ وأثاث وديكور', detail: 'ستائر وتنجيد، المجاهد 2. نفس الرقم واتساب', phones: ['01276817345'] },
+    { id: 54, name: 'Natasia care (فخامة التجميل)', category: 'تجميل', detail: 'تركيبات صيدلانية تجميلية وعلاجية', phones: ['01025540210'] },
 ];
 </script>
 <script>
